@@ -22,12 +22,20 @@ Or install it yourself as:
 $ gem install slack-webhooklogger
 ```
 
-Finally, run the install generator:
+Then, run the install generator:
 
 ```
 $ rails generate slack-webhooklogger:install
 ```
 
-## Usage
+Provide the webhook URL in the config, and finally, extend the logger:
 
-TODO: Write usage instructions here
+```ruby
+config.after_initialize do
+  Rails.logger.extend ActiveSupport::Logger.broadcast(SlackWebhookLogger.logger)
+end
+```
+
+## Configuration
+
+You can change the log level or the format of the logging text if you wish. See the generated slack_webhook_logger.rb file for more infomation on that.

@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require_relative 'lib/slack/webhook_logger/version'
+require_relative 'lib/slack_webhook_logger/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'rails-logger-slack'
-  spec.version       = Slack::WebhookLogger::VERSION
+  spec.name          = 'slack_webhook_logger'
+  spec.version       = SlackWebhookLogger::VERSION
   spec.authors       = ['Garen J. Torikian']
-  spec.email         = ['gjtorikian@users.noreply.github.com']
+  spec.email         = ['gjtorikian@gmail.com']
 
   spec.summary       = 'A slim wrapper for posting to Rails logs to Slack'
-  spec.homepage      = 'https://github.com/gjtorikian/rails-logger-slack'
+  spec.homepage      = 'https://github.com/gjtorikian/slack_webhook_logger'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('~> 2.5')
 
@@ -24,5 +24,6 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'activesupport', '~> 5.0'
+  spec.add_dependency 'activesupport', '>= 5.0', '< 7.0'
+  spec.add_dependency 'railties', '>= 5.0', '< 7.0' # for the generators
 end
