@@ -28,7 +28,7 @@ module SlackWebhookLogger
         MSG
 
         {
-          text: "#{[title, text].join("\n")}",
+          text: [title, text].join("\n").to_s,
           blocks: [
             {
               type: 'section',
