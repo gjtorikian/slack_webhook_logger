@@ -38,4 +38,4 @@ end
 
 ## Configuration
 
-You can change the log level or the format of the logging text if you wish. See the generated slack_webhook_logger.rb file for more infomation on that.
+You can change the log level or the format of the logging text if you wish. See the generated slack_webhook_logger.rb file for more information on that.

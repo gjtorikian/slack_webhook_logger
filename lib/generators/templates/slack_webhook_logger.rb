@@ -14,4 +14,8 @@ SlackWebhookLogger.setup do |config|
   # The formatter must construct a JSON blob that adheres to Slack's expected
   # POST payload for `chat.postMessage`: https://api.slack.com/methods/chat.postMessage
   # config.formatter =  SomeOtherFormatter.new
+
+  # You can provide an array of regular expressions to ignore certain messages
+  # from being sent to Slack. This is optional.
+  # config.ignore_patterns = []
 end

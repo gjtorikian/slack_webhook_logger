@@ -16,6 +16,7 @@ module SlackWebhookLogger
   mattr_accessor :webhook_url
   mattr_accessor :level
   mattr_accessor :formatter
+  mattr_accessor :ignore_patterns
 
   # Used internally
   mattr_reader :webhook_uri
@@ -37,6 +38,8 @@ module SlackWebhookLogger
     https.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
     @@https = https
+
+    @@ignore_patterns ||= []
   end
   # rubocop:enable Style/ClassVars
 end
