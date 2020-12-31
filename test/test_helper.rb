@@ -8,3 +8,8 @@ require 'rails/generators/test_case'
 require 'generators/slack_webhook_logger/install_generator'
 
 require 'minitest/autorun'
+require 'minitest/pride'
+
+require 'webmock/minitest'
+
+WebMock.disable_net_connect!

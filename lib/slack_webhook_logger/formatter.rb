@@ -5,7 +5,7 @@ module SlackWebhookLogger
     attr_writer :format
 
     def format
-      @format ||= proc { |severity, time, _progname, msg|
+      @format ||= proc do |severity, time, _progname, msg|
         heading = case severity
                   when 'FATAL'
                     "📛 *#{severity}*"
@@ -27,33 +27,37 @@ module SlackWebhookLogger
           #{msg2str(msg)}
         MSG
 
-        {
-          text: [title, text].join("\n").to_s,
-          blocks: [
-            {
-              type: 'section',
-              text: {
-                type: 'mrkdwn',
-                text: title
-              }
-            },
-            {
-              type: 'divider'
-            },
-            {
-              type: 'section',
-              text: {
-                "type": 'plain_text',
-                "text": text
-              }
-            }
-          ]
-        }
-      }
+        slackify(title, text)
+      end
     end
 
     def call(severity, time, progname, msg)
       format.call(severity, time, progname, msg)
+    end
+
+    def slackify(title, text)
+      {
+        text: [title, text].join("\n").to_s,
+        blocks: [
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: title
+            }
+          },
+          {
+            type: 'divider'
+          },
+          {
+            type: 'section',
+            text: {
+              "type": 'plain_text',
+              "text": text
+            }
+          }
+        ]
+      }
     end
 
     private def msg2str(msg)
