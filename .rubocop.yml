@@ -4,4 +4,4 @@ inherit_gem:
     - config/minitest.yml
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.0

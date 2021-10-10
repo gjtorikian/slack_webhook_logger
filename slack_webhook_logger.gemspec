@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'A slim wrapper for posting to Rails logs to Slack'
   spec.homepage      = 'https://github.com/gjtorikian/slack_webhook_logger'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('~> 2.5')
+  spec.required_ruby_version = Gem::Requirement.new('~> 3.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
