@@ -21,7 +21,7 @@ module SlackWebhookLogger
                     '🪵 *Logger*'
                   end
 
-        title = "#{heading} (#{time})"
+        title = "#{heading} (#{time}) [#{ENV['RAILS_ENV']}]"
 
         text = <<~MSG
           #{msg2str(msg)}
