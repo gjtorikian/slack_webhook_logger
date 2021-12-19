@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slack_webhook_logger (0.2.2)
+    slack_webhook_logger (0.3.0)
       activesupport (>= 5.0, < 7.0)
       railties (>= 5.0, < 7.0)
 
@@ -44,10 +44,8 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     method_source (1.0.0)
-    mini_portile2 (2.6.1)
     minitest (5.15.0)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.12.5-arm64-darwin)
       racc (~> 1.4)
     parallel (1.21.0)
     parser (3.0.3.2)
