@@ -52,8 +52,8 @@ module SlackWebhookLogger
           {
             type: 'section',
             text: {
-              "type": 'plain_text',
-              "text": text
+              type: 'plain_text',
+              text: text
             }
           }
         ]
