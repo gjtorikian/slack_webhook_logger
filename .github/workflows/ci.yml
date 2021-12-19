@@ -1,11 +1,7 @@
 name: Ruby CI
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
   push:
-    branches:
-      - main
 
 jobs:
   test:
@@ -14,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby-version: [2.7.2, 2.6.6, 2.5.8]
+        ruby-version: [3.0.2]
 
     steps:
       - uses: actions/checkout@v2

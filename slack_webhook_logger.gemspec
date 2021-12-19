@@ -26,4 +26,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'activesupport', '>= 5.0', '< 7.0'
   spec.add_dependency 'railties', '>= 5.0', '< 7.0' # for the generators
+  spec.metadata = {
+    'rubygems_mfa_required' => 'true'
+  }
 end
