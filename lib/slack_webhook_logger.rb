@@ -32,12 +32,11 @@ module SlackWebhookLogger
     @@logger.formatter = @@formatter || SlackWebhookLogger::Formatter.new
     @@logger.level = @@level || :warn
 
-    @@webhook_uri = URI.parse(@@webhook_url)
-    https = Net::HTTP.new(@@webhook_uri.host, @@webhook_uri.port)
-    https.use_ssl = true
-    https.verify_mode = OpenSSL::SSL::VERIFY_PEER
-
-    @@https = https
+    begin
+      @@webhook_uri = URI.parse(@@webhook_url)
+    rescue URI::InvalidURIError
+      raise ArgumentError, 'Invalid URI for webhook_url'
+    end
 
     @@ignore_patterns ||= []
   end

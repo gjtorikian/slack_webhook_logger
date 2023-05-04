@@ -45,4 +45,12 @@ class SlackWebhookLogger::RequestIOTest < Minitest::Test
     # no webmock stub necessary as nothing is sent
     SlackWebhookLogger::RequestIO.write(msg)
   end
+
+  def test_it_recovers_from_invalid_uri
+    assert_raises ArgumentError do
+      SlackWebhookLogger.setup do |config|
+        config.webhook_url = nil
+      end
+    end
+  end
 end

@@ -2,6 +2,7 @@
 
 require 'uri'
 require 'json'
+require 'httpx'
 
 module SlackWebhookLogger
   class RequestIO
@@ -14,11 +15,7 @@ module SlackWebhookLogger
 
       return if SlackWebhookLogger.ignore_patterns.any? { |ignore_pattern| hash[:text].match(ignore_pattern) }
 
-      payload = hash.to_json
-
-      req = Net::HTTP::Post.new(SlackWebhookLogger.webhook_uri.path)
-      req.set_form_data(payload: payload)
-      SlackWebhookLogger.https.request(req)
+      HTTPX.post(SlackWebhookLogger.webhook_uri.to_s, form: hash)
     end
   end
 end
