@@ -14,6 +14,7 @@ class SlackWebhookLogger::FormatterTest < Minitest::Test
   def test_changed_format
     formatter = @formatter.new
     formatter.format = -> { 'wakka wakka' }
+
     assert_equal('wakka wakka', formatter.format.call)
   end
 end
