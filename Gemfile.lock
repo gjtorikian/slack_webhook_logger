@@ -74,7 +74,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
-    rake (12.3.3)
+    rake (13.0.6)
     regexp_parser (2.8.1)
     rexml (3.2.5)
     rubocop (1.54.1)
@@ -124,7 +124,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print (~> 1.8)
   minitest (~> 5.18)
-  rake (~> 12.0)
+  rake (~> 13.0)
   rubocop (~> 1.54)
   rubocop-performance (~> 1.18)
   rubocop-standard (~> 5.1)
