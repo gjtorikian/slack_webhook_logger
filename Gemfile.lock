@@ -56,12 +56,6 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     method_source (1.0.0)
-    mini_portile2 (2.8.2)
-    minitest (5.18.1)
-    mocha (2.0.4)
-      ruby2_keywords (>= 0.0.5)
-    nokogiri (1.15.3)
-      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.3)
@@ -76,9 +70,6 @@ GEM
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.6.0)
-      loofah (~> 2.21)
-      nokogiri (~> 1.14)
     railties (7.0.6)
       actionpack (= 7.0.6)
       activesupport (= 7.0.6)
@@ -87,10 +78,8 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
-    rake (12.3.3)
+    rake (13.0.6)
     regexp_parser (2.8.1)
-    reline (0.3.5)
-      io-console (~> 0.5)
     rexml (3.2.5)
     rubocop (1.54.1)
       json (~> 2.3)
@@ -141,17 +130,16 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   amazing_print
   awesome_print (~> 1.8)
-  debug
-  minitest (~> 5.0)
-  mocha (~> 2.0)
-  rake (~> 12.0)
-  rubocop (~> 1.6)
-  rubocop-standard
+  minitest (~> 5.18)
+  rake (~> 13.0)
+  rubocop (~> 1.54)
+  rubocop-performance (~> 1.18)
+  rubocop-standard (~> 7.1)
   slack_webhook_logger!
   webmock (~> 3.11)
 
