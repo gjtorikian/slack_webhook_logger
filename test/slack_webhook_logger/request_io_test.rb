@@ -17,13 +17,7 @@ module SlackWebhookLogger
 
       stub_request(:post, "https://hooks.slack.com/services/xxx/yyy/zzz")
         .with(
-          body: { "payload" => '{"text":"🛑 *ERROR*\\nSome kind of error.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"🛑 *ERROR*"}},{"type":"divider"},{"type":"section","text":{"type":"plain_text","text":"Some kind of error."}}]}' },
-          headers: {
-            "Accept" => "*/*",
-            "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-            "Content-Type" => "application/x-www-form-urlencoded",
-            "User-Agent" => "Ruby",
-          },
+          body: { "blocks" => [{ "type" => "section" }, { "text" => { "type" => "plain_text", "text" => "Some kind of error." }, "type" => "divider" }, { "type" => "section" }], "text" => "🛑 *ERROR*\nSome kind of error." },
         )
         .to_return(status: 200, body: "", headers: {})
 
@@ -53,6 +47,21 @@ module SlackWebhookLogger
           config.webhook_url = nil
         end
       end
+    end
+
+    def test_it_warns_on_error
+      SlackWebhookLogger.setup do |config|
+        config.webhook_url = "https://hooks.slack.com/services/xxx/yyy/zzz"
+      end
+
+      stub_request(:post, "https://hooks.slack.com/services/xxx/yyy/zzz")
+        .with(
+          body: {},
+        )
+        .to_return(status: 500, body: "", headers: {})
+
+      Warning.expects(:warn)
+      SlackWebhookLogger::RequestIO.write(@msg)
     end
   end
 end

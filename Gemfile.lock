@@ -58,6 +58,8 @@ GEM
     method_source (1.0.0)
     mini_portile2 (2.8.2)
     minitest (5.18.1)
+    mocha (2.0.4)
+      ruby2_keywords (>= 0.0.5)
     nokogiri (1.15.3)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -127,6 +129,7 @@ GEM
       rubocop-shopify
       rubocop-sorbet
     ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
     thor (1.2.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -145,6 +148,7 @@ DEPENDENCIES
   awesome_print (~> 1.8)
   debug
   minitest (~> 5.0)
+  mocha (~> 2.0)
   rake (~> 12.0)
   rubocop (~> 1.6)
   rubocop-standard

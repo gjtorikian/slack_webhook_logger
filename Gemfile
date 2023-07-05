@@ -12,6 +12,8 @@ gem "rubocop", "~> 1.6"
 gem "rubocop-standard"
 
 gem "webmock", "~> 3.11"
+# mocking lib
+gem "mocha", "~> 2.0"
 
 gem "amazing_print", require: false
 gem "debug", require: false
