@@ -7,21 +7,21 @@ module SlackWebhookLogger
     def format
       @format ||= proc do |severity, time, _progname, msg|
         heading = case severity
-                  when 'FATAL'
-                    "📛 *#{severity}*"
-                  when 'ERROR'
-                    "🛑 *#{severity}*"
-                  when 'WARN'
-                    "⚠️ *#{severity}*"
-                  when 'INFO'
-                    "ℹ️ *#{severity}*"
-                  when 'DEBUG'
-                    "🐛 *#{severity}*"
-                  else
-                    '🪵 *Logger*'
-                  end
+        when "FATAL"
+          "📛 *#{severity}*"
+        when "ERROR"
+          "🛑 *#{severity}*"
+        when "WARN"
+          "⚠️ *#{severity}*"
+        when "INFO"
+          "ℹ️ *#{severity}*"
+        when "DEBUG"
+          "🐛 *#{severity}*"
+        else
+          "🪵 *Logger*"
+        end
 
-        title = "#{heading} (#{time}) [#{ENV.fetch('RAILS_ENV', nil)}]"
+        title = "#{heading} (#{time}) [#{ENV.fetch("RAILS_ENV", nil)}]"
 
         text = <<~MSG
           #{msg2str(msg)}
@@ -40,23 +40,23 @@ module SlackWebhookLogger
         text: [title, text].join("\n").to_s,
         blocks: [
           {
-            type: 'section',
+            type: "section",
             text: {
-              type: 'mrkdwn',
-              text: title
-            }
+              type: "mrkdwn",
+              text: title,
+            },
           },
           {
-            type: 'divider'
+            type: "divider",
           },
           {
-            type: 'section',
+            type: "section",
             text: {
-              type: 'plain_text',
-              text: text
-            }
-          }
-        ]
+              type: "plain_text",
+              text: text,
+            },
+          },
+        ],
       }
     end
 
@@ -66,7 +66,7 @@ module SlackWebhookLogger
         msg
       when ::Exception
         "#{msg.message} (#{msg.class})\n" <<
-        (msg.backtrace || []).join("\n")
+          (msg.backtrace || []).join("\n")
       else
         msg.inspect
       end

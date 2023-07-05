@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'active_support/logger'
-require 'active_support/core_ext/module/attribute_accessors'
+require "active_support/logger"
+require "active_support/core_ext/module/attribute_accessors"
 
-require 'net/http'
-require 'net/https'
-require 'uri'
+require "net/http"
+require "net/https"
+require "uri"
 
-require 'slack_webhook_logger/logger'
-require 'slack_webhook_logger/formatter'
-require 'slack_webhook_logger/request_io'
+require "slack_webhook_logger/logger"
+require "slack_webhook_logger/formatter"
+require "slack_webhook_logger/request_io"
 
 module SlackWebhookLogger
   # Can be modified in Rails app
@@ -23,22 +23,24 @@ module SlackWebhookLogger
   mattr_reader :logger
   mattr_reader :https
 
-  # rubocop:disable Style/ClassVars
-  def self.setup
-    @@logger = SlackWebhookLogger::Logger.new(SlackWebhookLogger::RequestIO)
+  class << self
+    # rubocop:disable Style/ClassVars
+    def setup
+      @@logger = SlackWebhookLogger::Logger.new(SlackWebhookLogger::RequestIO)
 
-    yield self
+      yield self
 
-    @@logger.formatter = @@formatter || SlackWebhookLogger::Formatter.new
-    @@logger.level = @@level || :warn
+      @@logger.formatter = @@formatter || SlackWebhookLogger::Formatter.new
+      @@logger.level = @@level || :warn
 
-    begin
-      @@webhook_uri = URI.parse(@@webhook_url)
-    rescue URI::InvalidURIError
-      raise ArgumentError, 'Invalid URI for webhook_url'
+      begin
+        @@webhook_uri = URI.parse(@@webhook_url)
+      rescue URI::InvalidURIError
+        raise ArgumentError, "Invalid URI for webhook_url"
+      end
+
+      @@ignore_patterns ||= []
     end
-
-    @@ignore_patterns ||= []
+    # rubocop:enable Style/ClassVars
   end
-  # rubocop:enable Style/ClassVars
 end
