@@ -90,23 +90,29 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.29.0)
       parser (>= 3.2.1.0)
-    rubocop-minitest (0.30.0)
+    rubocop-minitest (0.31.0)
       rubocop (>= 1.39, < 2.0)
     rubocop-performance (1.18.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.19.1)
+    rubocop-rails (2.20.2)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-standard (5.2.1)
+    rubocop-shopify (2.14.0)
+      rubocop (~> 1.51)
+    rubocop-sorbet (0.7.0)
+      rubocop (>= 0.90.0)
+    rubocop-standard (7.1.0)
       rubocop
       rubocop-minitest
       rubocop-performance
       rubocop-rails
       rubocop-rake
+      rubocop-shopify
+      rubocop-sorbet
     ruby-progressbar (1.13.0)
     thor (1.2.1)
     tzinfo (2.0.6)
@@ -127,7 +133,7 @@ DEPENDENCIES
   rake (~> 12.0)
   rubocop (~> 1.54)
   rubocop-performance (~> 1.18)
-  rubocop-standard (~> 5.1)
+  rubocop-standard (~> 7.1)
   slack_webhook_logger!
   webmock (~> 3.11)
 
