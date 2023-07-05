@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Specify your gem's dependencies in slack-webhooklogger.gemspec
 gemspec
 
-gem 'awesome_print', '~> 1.8'
 gem 'minitest', '~> 5.18'
 gem 'rake', '~> 13.0'
-gem 'rubocop', '~> 1.54'
-gem 'rubocop-performance', '~> 1.18'
-gem 'rubocop-standard', '~> 7.1'
+gem 'rubocop', '~> 1.6'
+gem "rubocop-standard"
 
-gem 'webmock', '~> 3.11'
+gem "webmock", "~> 3.11"
+# mocking lib
+gem "mocha", "~> 2.0"
+
+gem "amazing_print", require: false
+gem "debug", require: false

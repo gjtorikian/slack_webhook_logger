@@ -2,7 +2,7 @@
 
 SlackWebhookLogger.setup do |config|
   # The URL where messages will be sent. This is required.
-  config.webhook_url = 'https://hooks.slack.com/services/xxx/yyy/zzz'
+  config.webhook_url = "https://hooks.slack.com/services/xxx/yyy/zzz"
 
   # The minimum error level to see in Slack. This is optional; the default is :WARN.
   #

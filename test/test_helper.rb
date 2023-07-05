@@ -1,15 +1,25 @@
 # frozen_string_literal: true
 
-ENV['RAILS_ENV'] = 'test'
+ENV["RAILS_ENV"] = "test"
 
-$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
-require 'slack_webhook_logger'
-require 'rails/generators/test_case'
-require 'generators/slack_webhook_logger/install_generator'
+if ENV.fetch("DEBUG", false)
+  require "amazing_print"
+  require "debug"
+end
 
-require 'minitest/autorun'
-require 'minitest/pride'
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "slack_webhook_logger"
+require "rails/generators/test_case"
+require "generators/slack_webhook_logger/install_generator"
 
-require 'webmock/minitest'
+require "minitest/autorun"
+require "minitest/pride"
+
+require "webmock/minitest"
+require "httpx/adapters/webmock"
+WebMock.enable!
+WebMock.disable_net_connect!(allow_localhost: true)
 
 WebMock.disable_net_connect!
+
+require "mocha/minitest"

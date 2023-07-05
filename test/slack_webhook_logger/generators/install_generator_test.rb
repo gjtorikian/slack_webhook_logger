@@ -8,6 +8,6 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   def test_all_factors
     run_generator
 
-    assert_file 'config/initializers/slack_webhook_logger.rb'
+    assert_file("config/initializers/slack_webhook_logger.rb")
   end
 end
