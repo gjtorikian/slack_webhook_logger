@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slack_webhook_logger (0.4.0)
+    slack_webhook_logger (0.5.0)
       activesupport (>= 5.0, < 8.0)
       httpx (~> 0.20)
       railties (>= 5.0, < 8.0)
@@ -31,7 +31,6 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     amazing_print (1.5.0)
     ast (2.4.2)
-    awesome_print (1.9.2)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
     crack (0.4.5)
@@ -56,6 +55,12 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     method_source (1.0.0)
+    minitest (5.18.1)
+    mocha (2.0.4)
+      ruby2_keywords (>= 0.0.5)
+    nokogiri (1.15.3-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.3)
@@ -70,6 +75,9 @@ GEM
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
+    rails-html-sanitizer (1.6.0)
+      loofah (~> 2.21)
+      nokogiri (~> 1.14)
     railties (7.0.6)
       actionpack (= 7.0.6)
       activesupport (= 7.0.6)
@@ -80,6 +88,8 @@ GEM
     rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.8.1)
+    reline (0.3.5)
+      io-console (~> 0.5)
     rexml (3.2.5)
     rubocop (1.54.1)
       json (~> 2.3)
@@ -130,16 +140,17 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
+  arm64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
   amazing_print
-  awesome_print (~> 1.8)
+  debug
   minitest (~> 5.18)
+  mocha (~> 2.0)
   rake (~> 13.0)
-  rubocop (~> 1.54)
-  rubocop-performance (~> 1.18)
-  rubocop-standard (~> 7.1)
+  rubocop (~> 1.6)
+  rubocop-standard
   slack_webhook_logger!
   webmock (~> 3.11)
 
