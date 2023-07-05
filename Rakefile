@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "bundler/gem_tasks"
+require "rubygems/package_task"
 require "rake/testtask"
 
 Rake::TestTask.new(:test) do |t|
@@ -9,8 +10,11 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/*_test.rb"]
 end
 
-task default: :test
-
 require "rubocop/rake_task"
 
-RuboCop::RakeTask.new(:rubocop)
+RuboCop::RakeTask.new
+
+GEMSPEC = Bundler.load_gemspec("slack_webhook_logger.gemspec")
+gem_path = Gem::PackageTask.new(GEMSPEC).define
+desc "Package the ruby gem"
+task "package" => [gem_path]
