@@ -18,5 +18,14 @@ module SlackWebhookLogger
 
       assert_equal("wakka wakka", formatter.format.call)
     end
+
+    def test_truncates
+      formatter = @formatter.new
+
+      assert_match(
+        /wakkawa\.\.\./,
+        formatter.format.call("severity", "timestamp", "progname", "wakka wakka" * Formatter::MAX_LENGTH)[:text],
+      )
+    end
   end
 end
