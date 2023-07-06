@@ -20,11 +20,12 @@ module SlackWebhookLogger
 
         return if (200..299).cover?(response.status)
 
+        error_prefix = "slack_webhook_logger failed.\nRequest: #{hash}\nResponse:"
         case response
         when HTTPX::ErrorResponse
-          warn(response)
+          warn("#{error_prefix} #{response}")
         else
-          warn(response.body)
+          warn("#{error_prefix} #{response.status} #{response.body}")
         end
       end
     end
