@@ -4,6 +4,8 @@ module SlackWebhookLogger
   class Formatter < ::Logger::Formatter
     attr_writer :format
 
+    MAX_LENGTH = 20000
+
     def format
       @format ||= proc do |severity, time, _progname, msg|
         heading = case severity
@@ -27,7 +29,7 @@ module SlackWebhookLogger
           #{msg2str(msg)}
         MSG
 
-        slackify(title, text)
+        slackify(truncate(title), truncate(text))
       end
     end
 
@@ -70,6 +72,10 @@ module SlackWebhookLogger
       else
         msg.inspect
       end
+    end
+
+    private def truncate(string)
+      string.length > MAX_LENGTH ? "#{string[0...MAX_LENGTH]}..." : string
     end
   end
 end

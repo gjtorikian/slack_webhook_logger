@@ -16,7 +16,7 @@ module SlackWebhookLogger
 
         return if SlackWebhookLogger.ignore_patterns.any? { |ignore_pattern| hash[:text].match(ignore_pattern) }
 
-        response = HTTPX.post(SlackWebhookLogger.webhook_uri.to_s, form: hash)
+        response = HTTPX.with(headers: { "content-type" => "application/json" }).post(SlackWebhookLogger.webhook_uri.to_s, form: hash)
 
         return if (200..299).cover?(response.status)
 

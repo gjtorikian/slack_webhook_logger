@@ -17,7 +17,7 @@ module SlackWebhookLogger
 
       stub_request(:post, "https://hooks.slack.com/services/xxx/yyy/zzz")
         .with(
-          body: { "blocks" => [{ "type" => "section" }, { "text" => { "type" => "plain_text", "text" => "Some kind of error." }, "type" => "divider" }, { "type" => "section" }], "text" => "🛑 *ERROR*\nSome kind of error." },
+          body: "text=%F0%9F%9B%91+*ERROR*%0ASome+kind+of+error.&blocks%5B%5D%5Btype%5D=section&blocks%5B%5D%5Btext%5D%5Btype%5D=mrkdwn&blocks%5B%5D%5Btext%5D%5Btext%5D=%F0%9F%9B%91+*ERROR*&blocks%5B%5D%5Btype%5D=divider&blocks%5B%5D%5Btype%5D=section&blocks%5B%5D%5Btext%5D%5Btype%5D=plain_text&blocks%5B%5D%5Btext%5D%5Btext%5D=Some+kind+of+error.",
         )
         .to_return(status: 200, body: "", headers: {})
 
