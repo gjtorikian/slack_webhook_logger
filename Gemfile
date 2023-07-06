@@ -5,9 +5,9 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in slack-webhooklogger.gemspec
 gemspec
 
-gem 'minitest', '~> 5.18'
-gem 'rake', '~> 13.0'
-gem 'rubocop', '~> 1.6'
+gem "minitest", "~> 5.18"
+gem "rake", "~> 13.0"
+gem "rubocop", "~> 1.6"
 gem "rubocop-standard"
 
 gem "webmock", "~> 3.11"
