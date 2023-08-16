@@ -4,7 +4,13 @@ module SlackWebhookLogger
   class Formatter < ::Logger::Formatter
     attr_writer :format
 
-    MAX_LENGTH = 20000
+    MAX_LENGTH = 3000
+
+    class << self
+      def fetch_text(hash)
+        hash[:blocks].last[:text][:text]
+      end
+    end
 
     def format
       @format ||= proc do |severity, time, _progname, msg|
@@ -39,7 +45,6 @@ module SlackWebhookLogger
 
     def slackify(title, text)
       {
-        text: [title, text].join("\n").to_s,
         blocks: [
           {
             type: "section",
@@ -75,7 +80,7 @@ module SlackWebhookLogger
     end
 
     private def truncate(string)
-      string.length > MAX_LENGTH ? "#{string[0...MAX_LENGTH]}..." : string
+      string.length > MAX_LENGTH ? "#{string[0...MAX_LENGTH - 3]}..." : string
     end
   end
 end

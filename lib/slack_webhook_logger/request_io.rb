@@ -14,7 +14,7 @@ module SlackWebhookLogger
       def write(hash)
         return if hash.blank?
 
-        return if SlackWebhookLogger.ignore_patterns.any? { |ignore_pattern| hash[:text].match(ignore_pattern) }
+        return if SlackWebhookLogger.ignore_patterns.any? { |ignore_pattern| SlackWebhookLogger::Formatter.fetch_text(hash).match(ignore_pattern) }
 
         response = HTTPX.with(headers: { "content-type" => "application/json" }).post(SlackWebhookLogger.webhook_uri.to_s, json: hash)
 

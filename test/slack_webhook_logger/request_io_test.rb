@@ -18,7 +18,6 @@ module SlackWebhookLogger
       stub_request(:post, "https://hooks.slack.com/services/xxx/yyy/zzz")
         .with(
           body: {
-            text: [@title, @text].join("\n").to_s,
             blocks: [
               {
                 type: "section",
