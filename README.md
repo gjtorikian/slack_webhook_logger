@@ -38,7 +38,7 @@ end
 
 ## Configuration
 
-You should have a file in `config/initializers/slack_webhook_logger.rb` that looks somrthing like this:
+You should have a file in `config/initializers/slack_webhook_logger.rb` that looks something like this:
 
 ```ruby
 SlackWebhookLogger.setup do |config|

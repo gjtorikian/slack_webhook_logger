@@ -18,4 +18,8 @@ SlackWebhookLogger.setup do |config|
   # You can provide an array of regular expressions to ignore certain messages
   # from being sent to Slack. This is optional.
   # config.ignore_patterns = []
+
+  # You can provide a specific name for your app; otherwise, it will default to
+  # the name of your Rails app. This is optional.
+  # config.application_name = []
 end
