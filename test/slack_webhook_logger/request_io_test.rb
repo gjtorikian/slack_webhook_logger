@@ -8,6 +8,7 @@ module SlackWebhookLogger
       @title = "🛑 *ERROR*"
       @text = "Some kind of error."
       @msg = SlackWebhookLogger::Formatter.new.slackify(@title, @text)
+      SlackWebhookLogger.application_name = "TestApp"
     end
 
     def test_it_posts_to_slack

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module SlackWebhookLogger
-  VERSION = "0.5.5"
+  VERSION = "0.6.0"
 end

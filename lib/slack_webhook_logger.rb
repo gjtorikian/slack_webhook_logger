@@ -17,6 +17,7 @@ module SlackWebhookLogger
   mattr_accessor :level
   mattr_accessor :formatter
   mattr_accessor :ignore_patterns
+  mattr_accessor :application_name
 
   # Used internally
   mattr_reader :webhook_uri
@@ -39,6 +40,7 @@ module SlackWebhookLogger
         raise ArgumentError, "Invalid URI for webhook_url"
       end
 
+      @@application_name ||= Rails.application.class.module_parent_name
       @@ignore_patterns ||= []
     end
     # rubocop:enable Style/ClassVars
