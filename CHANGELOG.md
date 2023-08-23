@@ -1,3 +1,9 @@
+## [v0.6.1] - 23-08-2023
+## What's Changed
+* Add pre code backticks by @gjtorikian in https://github.com/gjtorikian/slack_webhook_logger/pull/17
+
+
+**Full Changelog**: https://github.com/gjtorikian/slack_webhook_logger/compare/v0.6.0...v0.6.1
 ## [v0.6.0] - 17-08-2023
 ## What's Changed
 * Add the application_name to the message by @gjtorikian in https://github.com/gjtorikian/slack_webhook_logger/pull/16
