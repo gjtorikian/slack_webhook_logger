@@ -32,7 +32,9 @@ module SlackWebhookLogger
         title = "#{heading} #{SlackWebhookLogger.application_name} [#{ENV.fetch("RAILS_ENV", nil)}] (#{time})"
 
         text = <<~MSG
+          ```
           #{msg2str(msg)}
+          ```
         MSG
 
         slackify(truncate(title), truncate(text))
