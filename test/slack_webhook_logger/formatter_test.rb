@@ -25,7 +25,7 @@ module SlackWebhookLogger
       result = formatter.format.call("severity", "timestamp", "progname", "wakka wakka" * Formatter::MAX_LENGTH)
 
       assert_match(
-        /\.\.\.$/,
+        /\.\.\.\`\`\`$/,
         SlackWebhookLogger::Formatter.fetch_text(result),
       )
     end

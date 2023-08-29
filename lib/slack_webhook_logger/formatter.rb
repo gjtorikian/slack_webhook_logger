@@ -31,9 +31,9 @@ module SlackWebhookLogger
 
         title = "#{heading} #{SlackWebhookLogger.application_name} [#{ENV.fetch("RAILS_ENV", nil)}] (#{time})"
 
-        text = "```#{msg2str(msg)}```"
+        text = "```#{msg2str(msg)}"
 
-        slackify(truncate(title), truncate(text))
+        slackify(truncate(title), "#{truncate(text)}```")
       end
     end
 
@@ -78,7 +78,8 @@ module SlackWebhookLogger
     end
 
     private def truncate(string)
-      string.length > MAX_LENGTH ? "#{string[0...MAX_LENGTH - 3]}..." : string
+      # 3 for the ellipsis, 3 for the backticks
+      string.length > MAX_LENGTH ? "#{string[0...MAX_LENGTH - 6]}..." : string
     end
   end
 end
