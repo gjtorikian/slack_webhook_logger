@@ -1,3 +1,5 @@
+## [v0.6.5] - 10-09-2023
+**Full Changelog**: https://github.com/gjtorikian/slack_webhook_logger/compare/v0.6.4...v0.6.5
 ## [v0.6.4] - 30-08-2023
 **Full Changelog**: https://github.com/gjtorikian/slack_webhook_logger/compare/v0.6.3...v0.6.4
 ## [v0.6.3] - 29-08-2023
