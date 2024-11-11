@@ -24,9 +24,9 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ["lib"]
 
-  spec.add_dependency("activesupport", ">= 5.0", "< 8.0")
+  spec.add_dependency("activesupport", ">= 5.0", "< 9.0")
   spec.add_dependency("httpx", ">= 0.20", "< 2.0")
-  spec.add_dependency("railties", ">= 5.0", "< 8.0") # for the generators
+  spec.add_dependency("railties", ">= 5.0", "< 9.0") # for the generators
   spec.metadata = {
     "rubygems_mfa_required" => "true",
   }
