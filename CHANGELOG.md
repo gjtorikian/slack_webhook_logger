@@ -1,3 +1,12 @@
+# [v0.7.0] - 12-11-2024
+## What's Changed
+* Bump the github-actions group with 1 update by @dependabot in https://github.com/gjtorikian/slack_webhook_logger/pull/18
+* Bump the bundler-dependencies group with 1 update by @dependabot in https://github.com/gjtorikian/slack_webhook_logger/pull/19
+* Bump the bundler-dependencies group with 2 updates by @dependabot in https://github.com/gjtorikian/slack_webhook_logger/pull/20
+* Loosen support version restrictions by @gjtorikian in https://github.com/gjtorikian/slack_webhook_logger/pull/21
+
+
+**Full Changelog**: https://github.com/gjtorikian/slack_webhook_logger/compare/v0.6.5...v0.7.0
 ## [v0.6.5] - 10-09-2023
 **Full Changelog**: https://github.com/gjtorikian/slack_webhook_logger/compare/v0.6.4...v0.6.5
 ## [v0.6.4] - 30-08-2023
